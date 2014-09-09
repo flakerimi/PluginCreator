@@ -1,0 +1,1 @@
+<h2>You plugin has been created </h2>
