@@ -57,7 +57,7 @@ class AdminController extends \Ip\Controller
 		$this->createFile($name, 'Plugin/PluginCreator/templates/single.php',$view.'/single.php');
 		$this->createFile($name, 'Plugin/PluginCreator/templates/index.php',$view.'/index.php');
 
-		return new \Ip\Response\Redirect('?aa=PluginCreator.created');
+		return new \Ip\Response\Json('Success');
 
 	}
 	public function created()
