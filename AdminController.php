@@ -23,26 +23,26 @@ class AdminController extends \Ip\Controller
 		//print_r(ipRequest()->getPost()['name']);
 
 		$name = ucwords(ipRequest()->getPost()['namespace']).ucwords(ipRequest()->getPost()['name']);
+		if(ipRequest()->getPost() == true) {
+			$dir = 'Plugin/'.$name;
+			if(!is_dir($dir)) {
+				mkdir('Plugin/'.$name, 0777,true);
+			}
+			$setup = 'Plugin/'.$name.'/Setup';
+			if(!is_dir($setup)) {
+				mkdir('Plugin/'.$name.'/Setup', 0777,true);
+			}
 
-		$dir = 'Plugin/'.$name;
-		if(!is_dir($dir)) {
-			$dir = mkdir('Plugin/'.$name, 0777);
-		}
-		$setup = 'Plugin/'.$name.'/Setup';
-		if(!is_dir($setup)) {
-			$setup = mkdir('Plugin/'.$name.'/Setup', 0777);
-		}
+			$assets = 'Plugin/'.$name.'/assets';
+			if(!is_dir($assets)) {
+				mkdir('Plugin/'.$name.'/assets', 0777,true);
+			}
 
-		$assets = 'Plugin/'.$name.'/assets';
-		if(!is_dir($assets)) {
-			$assets = mkdir('Plugin/'.$name.'/assets', 0777);
-		}
-
-		$view = 'Plugin/'.$name.'/view';
-		if(!is_dir($view)) {
-			$view = mkdir('Plugin/'.$name.'/view', 0777);
-		}
- 
+			$view = 'Plugin/'.$name.'/view';
+			if(!is_dir($view)) {
+				mkdir('Plugin/'.$name.'/view', 0777,true);
+			}
+ 		}
 		$this->createFile($name, 'Plugin/PluginCreator/templates/AdminController.php',$dir.'/AdminController.php');
 		$this->createFile($name, 'Plugin/PluginCreator/templates/Event.php',$dir.'/Event.php');
 		$this->createFile($name, 'Plugin/PluginCreator/templates/Filter.php',$dir.'/Filter.php');

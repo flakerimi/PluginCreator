@@ -31,7 +31,7 @@ class Worker extends \Ip\SetupWorker
     public function remove()
     {
     $sql = '
-        DELETE TABLE 
+        DROP TABLE IF EXISTS
             ' . ipTable('#NAME#');
         ipDb()->execute($sql);
     }
