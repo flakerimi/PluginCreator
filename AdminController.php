@@ -20,9 +20,11 @@ class AdminController extends \Ip\Controller
 
 	public function create()
 	{
-		//print_r(ipRequest()->getPost()['name']);
+		$request = ipRequest()->getPost();
+		$namespace = $request['name'].'_';
+		//print_r($namespace);//['namespace']
 
-		$name = ucwords(ipRequest()->getPost()['namespace']).ucwords(ipRequest()->getPost()['name']);
+		$name = ucwords($namespace).ucwords($request['name']);
 		if(ipRequest()->getPost() == true) {
 			$dir = 'Plugin/'.$name;
 			if(!is_dir($dir)) {
@@ -57,12 +59,7 @@ class AdminController extends \Ip\Controller
 		$this->createFile($name, 'Plugin/PluginCreator/templates/single.php',$view.'/single.php');
 		$this->createFile($name, 'Plugin/PluginCreator/templates/index.php',$view.'/index.php');
 
-		return new \Ip\Response\Json('Success');
-
-	}
-	public function created()
-	{
-		return ipView('view/created.php');
-
+		//return new \Ip\Response\Redirect('?aa=Plugins.index');
+		return new \Ip\Response\Json( array('exampleMessage' => 'Hello world'));
 	}
 }
