@@ -9,8 +9,8 @@ class AdminController
     {
         $config = array(
             'title' => '#NAME#',
-            'table' => '#NAME#',
-            'sortField' => '#NAME#Order',
+            'table' => '#NAMELOWER#',
+            'sortField' => '#NAMELOWER#Order',
             'createPosition' => 'top',
             'pageSize' => 5,
             'fields' => array(

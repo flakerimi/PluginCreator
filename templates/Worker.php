@@ -8,14 +8,14 @@ class Worker extends \Ip\SetupWorker
     {
         $sql = "
         CREATE TABLE IF NOT EXISTS
-           " . ipTable('#NAME#') . "
+           " . ipTable('#NAMELOWER#') . "
         (
         `id` int(11) NOT NULL AUTO_INCREMENT,
-        `#NAME#Order` varchar(255),
+        `#NAMELOWER#Order` varchar(255),
         `name` varchar(255),
         PRIMARY KEY (`id`)
         );
-        INSERT INTO  " . ipTable('#NAME#') . " VALUE (1,'#NAME#');
+        INSERT INTO  " . ipTable('#NAMELOWER#') . " VALUE (1,'#NAME#');
         ";
 
         ipDb()->execute($sql);
@@ -25,14 +25,14 @@ class Worker extends \Ip\SetupWorker
 
     public function deactivate()
     {
+       $sql = 'DROP TABLE IF EXISTS ' . ipTable('#NAMELOWER#');
+        ipDb()->execute($sql);
 
     }
 
     public function remove()
     {
-    $sql = '
-        DROP TABLE IF EXISTS
-            ' . ipTable('#NAME#');
+        $sql = 'DROP TABLE IF EXISTS ' . ipTable('#NAMELOWER#');
         ipDb()->execute($sql);
     }
 
