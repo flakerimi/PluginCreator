@@ -124,12 +124,13 @@ class AdminController extends \Ip\Controller
 		foreach ($fields as $key => $value) {
 		 			$type = $value[1];
 				 $th .= "<th>".$value[0]."</th>";
- 				$worker_fields .= '<td><?php echo $value['.$type.']?> <td>\n';
+ 				$worker_fields .= '<td><?php echo $value'."['$type']?> </td>\n";
 		}
  		$template = file_get_contents($template);
 		$template = str_replace("#NAME#", $name, $template);
-		$template = str_replace("#FIELDS#", $worker_fields, $template);
 		$template = str_replace("#NAMELOWER#",strtolower($name), $template);
+		$template = str_replace("#TH#", $th, $template);
+		$template = str_replace("#FIELDS#", $worker_fields, $template);
 
 		$newFile = fopen($savepath, 'w');
 		fwrite($newFile, $template);
@@ -142,9 +143,9 @@ class AdminController extends \Ip\Controller
 		$worker_fields = '';
 		foreach ($fields as $key => $value) {
 		 			$type = $value[0];
-		 			$slug = $value[0];
+		 			$slug = $value[1];
 				 
- 				$worker_fields .= '<tr><td>'.$type.'</td><td><?php echo $value['.$slug.']?> <td></tr>\n';
+ 				$worker_fields .= "<tr>\n<td> $type </td><td><?php echo $".strtolower($name)."['$slug']?> </td>\n</tr>\n";
 		}
  		$template = file_get_contents($template);
 		$template = str_replace("#NAME#", $name, $template);
