@@ -1,8 +1,7 @@
-<div class="single">
-<?php 
+<table width="100%">
+ 
 
-echo $#NAMELOWER#['id']
-echo $#NAMELOWER#['name']
+ #FIELDS#
 
-?>
-</div>
+ 
+<table width="100%">

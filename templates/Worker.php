@@ -12,10 +12,9 @@ class Worker extends \Ip\SetupWorker
         (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `#NAMELOWER#Order` varchar(255),
-        `name` varchar(255),
+#FIELDS#
         PRIMARY KEY (`id`)
         );
-        INSERT INTO  " . ipTable('#NAMELOWER#') . " VALUE (1,'#NAME#');
         ";
 
         ipDb()->execute($sql);

@@ -14,10 +14,7 @@ class AdminController
             'createPosition' => 'top',
             'pageSize' => 5,
             'fields' => array(
-                array(
-                    'label' => 'Name',
-                    'field' => 'name',
-                ),
+                #FIELDS#
             )
         );
         return ipGridController($config);

@@ -10,7 +10,9 @@ class Helper
 	 {
 	 	# code...
 
-		$form = new \Ip\Form();
+		$form = new \Ip\Form(array('attributes','class=inline-form'));
+
+		$form->addClass('form-inline');
 
 		$form->addField(new \Ip\Form\Field\Hidden(
 		    array(
@@ -30,16 +32,40 @@ class Helper
 			    )
 			)
 		);
-
-		 
-
-		$form->addField(
+		$field1 = new \Ip\Form\Field\Text(
+			    array(
+			        'name' => 'name', // HTML "name" attribute
+			        'placeholder' => 'Field Name', // Field label that will be displayed next to input field
+ 			    )
+			);
+		$field2 = new \Ip\Form\Field\Select(
+			    array(
+			        'name' => 'name', // HTML "name" attribute
+			        'placeholder' => 'Field Type', // Field label that will be displayed next to input field
+ 		            'values' => array('checkbox'=>'Checkbox','checkboxes'=>'Checkboxes','color'=>'Color','currency'=>'Currency','grid'=>'Grid (since 4.1.3)','info'=>'Info','integer'=>'Integer','radio'=>'Radio','repository'=>'RepositoryFile','richtext'=>'RichText','select'=>'Select','text'=>'Text','textarea'=>'Textarea ','url'=>'Url')
+			    )
+			);
+		$field3 = new \Ip\Form\Field\Checkbox(
+			    array(
+			        'name' => 'name', // HTML "name" attribute
+			        'placeholder' => 'Required', // Field label that will be displayed next to input field
+ 			    )
+			);
+		$form->addFieldset(new \Ip\Form\Fieldset('Add new Field <i>asd</i>'));
+	    $form->addField($field1);
+	    $form->addField($field2);
+	    $form->addField($field3);
+ 
+		$createButton =
 			new \Ip\Form\Field\Submit(
 			    array(
 			        'value' => 'Create'
 			    )
-			)
+			 
 		);
+		$form->addFieldset(new \Ip\Form\Fieldset(' '));
+	    $form->addField($createButton);
+
 		return $form;
 	}
 }

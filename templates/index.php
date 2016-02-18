@@ -1,8 +1,10 @@
-<div>
-    <?php 
-    	foreach ($#NAMELOWER# as $value) {
-    		echo $value['id'].' '.$value['name'].'<br>';
+<table width="100%">
+		 #TH#
+    <?php foreach ($#NAMELOWER# as $value) { ?>
+    		<tr>
+    		 #FIELDS#
+    		<tr>
 
-    	}
-     ?>
-</div>
+    <?php	} ?>
+    
+</table>

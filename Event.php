@@ -9,7 +9,7 @@ class Event
     {
         //Add CSS, JS, set block content
         //ipAddCss('assets/application.css');
-        //ipAddJs('assets/app.js');
+        ipAddJs('assets/app.js');
     }
 
 }
