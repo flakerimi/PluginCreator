@@ -1,16 +1,16 @@
-<form class=" ipsAjaxSubmit ipsModuleFormAdmin form-inline" method="post" action="http://pacienti.dev/" enctype="multipart/form-data" novalidate="novalidate">
+<form class=" ipsAjaxSubmit ipsModuleFormAdmin form-inline" method="post" action="" enctype="multipart/form-data" novalidate="novalidate">
 	<fieldset>
 		
-		<input id="field_6712802595364143105" class="" name="securityToken" type="hidden" value="29fa4ce3df1c60fec33ba738bcd98073">
+		<input id="field_6712802595364143105" class="" name="securityToken" type="hidden" value="<?php echo ipSecurityToken() ?>">
 		
 		
 		<input name="antispam[]" type="hidden" value="">
-		<input name="antispam[]" type="hidden" value="23dc022462216057eebb86c37d649711">
+		<input name="antispam[]" type="hidden" value="<?php echo  htmlspecialchars(md5(date('Y-m-d') . ipConfig()->get('sessionName'))) ?>">
 		<input id="field_3023215861767864321" class="" name="aa" type="hidden" value="PluginCreator.create">
 		<div class="form-group type-text">
-			<label for="field_7752973378725609473">
+			<label for="pluginName">
 			Plugin Name        </label>
-			<input id="field_7752973378725609473" class="form-control " name="plugin_name" type="text" value="">    
+			<input id="pluginName" class="form-control" name="plugin_name" type="text" >    
 			<div class="help-block">Name of your plugin, eg. SuperSlider</div>
 		</div>
 	</fieldset>
@@ -40,7 +40,6 @@
 					<option value="Textarea">Textarea </option>
 					<option value="Url">Url</option>
 				</select>
-				<div class="help-error"></div>
 			</div>
 			 
 			<div class="form-group   pull-right">
