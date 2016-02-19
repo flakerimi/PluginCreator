@@ -143,7 +143,7 @@ class AdminController extends \Ip\Controller
 		$worker_fields = '';
 		foreach ($fields as $key => $value) {
 		 			$type = $value[0];
-		 			$slug = "'".$value[0]."'";
+		 			$slug = "'".$value[1]."'";
 				 
  				$worker_fields .= '<tr><td>'.$type.'</td><td><?php echo $value['.$slug."]?> </td></tr>\n";
 		}
