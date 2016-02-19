@@ -124,7 +124,7 @@ class AdminController extends \Ip\Controller
 		foreach ($fields as $key => $value) {
 		 			$type = $value[1];
 				 $th .= "<th>".$value[0]."</th>";
- 				$worker_fields .= '<td><?php echo $value['.$type."]?> </td>\n";
+ 				$worker_fields .= '<td><?php echo $value[\''.$type."']?> </td>\n";
 		}
  		$template = file_get_contents($template);
 		$template = str_replace("#NAME#", $name, $template);
